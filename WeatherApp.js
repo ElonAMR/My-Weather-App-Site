@@ -47,7 +47,30 @@ function handleSearch() {
 
 
 
+function updateWeatherDisplay(weatherData) {
+    // update values data colum1
+    document.getElementById("temperature").textContent = `${weatherData.current.temp_c || "N/A"}°C`;
+    document.getElementById("location-name").textContent = weatherData.location.name || "N/A";
+    let text = weatherData.current.condition.text || "N/A";
+    document.getElementById("weather-text").textContent = text;
 
+    // update values data colum2
+    document.getElementById("tz-id").textContent = weatherData.location.tz_id || "N/A";
+    document.getElementById("country").textContent = weatherData.location.country || "N/A";
+    document.getElementById("local-time").textContent = `${weatherData.location.localtime || "N/A"}`;
+
+    document.getElementById("cloudy-value").textContent = `${weatherData.current.cloud || 0}%`;
+    document.getElementById("Day-Night").textContent = weatherData.current.is_day === 1 ? "Day" : "Night";
+    document.getElementById("Temp-F").textContent = `${weatherData.current.temp_f || "N/A"}°F`;
+    document.getElementById("Feel-Like").textContent = `${weatherData.current.feelslike_c || "N/A"}°C`;
+    document.getElementById("humidity-value").textContent = `${weatherData.current.humidity || 0}%`;
+    document.getElementById("wind-value").textContent = `${weatherData.current.wind_kph || 0} kph`;
+    document.getElementById("Wind-direction").textContent = `${weatherData.current.wind_dir || "N/A"}`;
+    document.getElementById("Uv").textContent = `${weatherData.current.uv || 0}`;
+    document.getElementById("precip-mm").textContent = `${weatherData.current.precip_mm || 0} mm`;
+
+    updateWeatherIcon(weatherData.current.condition.text, weatherData.current.is_day === 1);
+}
 
 
 
