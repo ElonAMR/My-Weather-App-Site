@@ -25,6 +25,37 @@ async function fetchWeatherData(){
 
 
 
+
+function checkLocationPermission() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}`;
+                await fetchWeatherData();
+            },
+            async () => {
+                // במקרה של סירוב, טען את מזג האוויר לפי תל אביב
+                console.warn("Location access denied. Using default location (Tel Aviv).");
+                await fetchWeatherData();
+            }
+        );
+    } else {
+        console.warn("Geolocation not supported. Using default location (Tel Aviv).");
+        fetchWeatherData();
+    }
+}
+
+// called first when site up
+checkLocationPermission();
+
+
+
+
+
+
+
 function handleSearch() {
     const locationInput = document.getElementById("location-input").value.trim();
 
