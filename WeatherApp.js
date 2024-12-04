@@ -22,3 +22,24 @@ async function fetchWeatherData(){
         throw e;
     }
 }
+
+
+
+function handleSearch() {
+    const locationInput = document.getElementById("location-input").value.trim();
+
+    if (locationInput) {
+        city = locationInput; // Update city based on user input
+        url =  `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`; // Update URL
+        fetchWeatherData()
+            .then(() => {
+                console.log("The request was completed successfully");
+            })
+            .catch((error) => {
+                console.error("Error in processing:", error);
+            });
+    } else {
+        alert("You Need Write Location!");
+    }
+    document.getElementById("location-input").value = "";
+}
