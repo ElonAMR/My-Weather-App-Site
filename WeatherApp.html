@@ -8,3 +8,100 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
+    <body>
+
+
+
+<div class="container-Weather">
+
+    <div class="colum1">
+        <div class="temp">
+
+            <h1 id="temperature"></h1>
+
+            <div class="location">
+                <h2 id="location-name"></h2>
+            </div>
+
+            <div class="weather-description">
+                <i id="weather-icon" ></i>
+                <p id="weather-text"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="colum2">
+
+        <div class="weather-container">
+            <div class="search-bar">
+                <input type="text" id="location-input" placeholder="Another Location">
+                <button id="search-button" onclick="handleSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+
+            <div class="weather-details">
+                <ul>
+                <h3>Weather Details</h3>
+                    <li>
+                        <span>Tz</span>
+                        <span id="tz-id"></span>
+                    </li>
+                    <li>
+                        <span>Country</span>
+                        <span id="country"></span>
+                    </li>
+                    <li>
+                        <span>Local Time</span>
+                        <span id="local-time"></span>
+                    </li>
+                    <li>
+                        <span>Cloudy</span>
+                        <span id="cloudy-value"></span>
+                    </li>
+                    <li>
+                        <span>Day/Night</span>
+                        <span id="Day-Night"></span>
+                    </li>
+                    <li>
+                        <span>Temp F</span>
+                        <span id="Temp-F"></span>
+                    </li>
+                    <li>
+                        <span>Feel Like</span>
+                        <span id="Feel-Like"></span>
+                    </li>
+                    <li>
+                        <span>Humidity</span>
+                        <span id="humidity-value"></span>
+                    </li>
+                    <li>
+                        <span>Wind</span>
+                        <span id="wind-value"></span>
+                    </li>
+                    <li>
+                        <span>Wind direction</span>
+                        <span id="Wind-direction"></span>
+                    </li>
+                    <li>
+                        <span>Uv</span>
+                        <span id="Uv"></span>
+                    </li>
+                    <li>
+                        <span>Precip</span>
+                        <span id="precip-mm"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+<script src="WeatherApp.js"></script>
+</html>
